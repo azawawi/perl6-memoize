@@ -55,4 +55,4 @@ say sprintf("get-slowed-result(%d) is %d", $_, get-slowed-result($_)) for 0..10;
 - [Perl 6 RFC 228 - Add memoize into the standard library](http://perl6.org/archive/rfc/228.html)
 - [Design specification for `is cached` subroutine trait](http://design.perl6.org/S06.html#is_cached)
 - [Perl 6 documentation for `is cached` subroutine trait](http://doc.perl6.org/routine/is%20cached)
-- (Memoization (wikipedia))[https://en.wikipedia.org/wiki/Memoization]
+- [Memoization on Wikipedia](https://en.wikipedia.org/wiki/Memoization)
