@@ -5,12 +5,16 @@ use v6;
 # This is called when 'is memoized' is added to a routine that returns a result
 multi sub trait_mod:<is>(Routine $r, :$memoized!) is export {
   my %cache;
-  my Int $cache_size = $memoized<cache_size> // -1;
-  my Str $cache_strategy = $memoized<cache_strategy> // "LRU";
-  my Bool $debug = $memoized<debug> // False;
+  my $options = $memoized.hash;
+  my Int $cache_size = $options<cache_size> // 1000;
+  my Str $cache_strategy = $options<cache_strategy> // "LRU";
+  die if $cache_strategy ne "LRU";
+  my Bool $debug = $options<debug> // False;
 
   # Wrap the routine in a block that..
   $r.wrap(-> $arg {
+
+    say $memoized.perl;
 
     # looks up the argument in the cache
     my $result;
@@ -42,9 +46,9 @@ multi sub trait_mod:<is>(Routine $r, :$memoized!) is export {
   });
 }
 
-sub factorial(Int $n where $_ > 0) is memoized{:cache_size(1000), :cache_strategy("LRU"), :debug} {
+sub factorial(Int $n where $_ > 0) is memoized(:cache_size(1), :cache_strategy("LRU"), :debug) {
   return 1 if $n <= 1;
   return factorial($n - 1) * $n;
 }
 
-say (sprintf("factorial of %s is %s\n", $_, factorial($_))) for 1..1000;
+say (sprintf("factorial of %s is %s\n", $_, factorial($_))) for 1..1;
