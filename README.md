@@ -15,6 +15,13 @@ similar to the currently experimental `is cached`.
 - Add a pluggable architecture to cache expiry.
 - Determine tunable cache size statistics
 
+## Build Status
+
+| Operating System  |   Build Status  | CI Provider |
+| ----------------- | --------------- | ----------- |
+| Linux / Mac OS X  | [![Build Status](https://travis-ci.org/azawawi/perl6-memoize.svg?branch=master)](https://travis-ci.org/azawawi/perl6-memoize)  | Travis CI |
+| Windows 7 64-bit  | [![Build status](https://ci.appveyor.com/api/projects/status/github/azawawi/perl6-memoize?svg=true)](https://ci.appveyor.com/project/azawawi/perl6-memoize/branch/master)  | AppVeyor |
+
 ## Example
 
 ```Perl6
