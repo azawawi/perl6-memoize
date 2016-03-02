@@ -16,6 +16,8 @@ similar to the currently experimental `is cached`.
 
 > perlpilot: it would be interesting if you could pass the thing that handles the caching as a parameter, but perhaps only as an academic exercise.
 
+> sortiz: azawawi, I understand, my comment is about semantic closure, ie the 'is memoize' trait imply 'is pure', that can be asserted or auto applied, that's my point.
+
 ## Build Status
 
 | Operating System  |   Build Status  | CI Provider |
