@@ -6,11 +6,13 @@ unit module Memoize;
 # This is called when 'is memoized' is added to a routine that returns a result
 multi sub trait_mod:<is>(Routine $r, :$memoized!) is export {
   my %cache;
-  my $options = $memoized.hash;
-  my Int $cache_size = $options<cache_size> // 1000;
+  my $options            = $memoized.hash if $memoized ~~ List;
+  $options               = $options // {};
+  my Int $cache_size     = $options<cache_size> // 1000;
   my Str $cache_strategy = $options<cache_strategy> // "LRU";
+  my Bool $debug         = $options<debug> // False;
+
   die if $cache_strategy ne "LRU";
-  my Bool $debug = $options<debug> // False;
 
   # Wrap the routine in a block that..
   $r.wrap(-> $arg {
