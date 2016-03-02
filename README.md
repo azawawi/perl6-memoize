@@ -1,5 +1,6 @@
 # Memoize
-Make subroutines and methods faster by trading space for time
+This make a Perl 6 routine faster by caching its results. This means it trades
+more memory space used to get less execution time on cache hits.
 
 This is a totally-experimental-at-the-moment module to create a subroutine trait
 similar to the currently experimental `is cached`.
