@@ -14,6 +14,8 @@ similar to the currently experimental `is cached`.
 - Add a pluggable architecture to cache expiry.
 - Determine tunable cache size statistics
 
+> perlpilot: it would be interesting if you could pass the thing that handles the caching as a parameter, but perhaps only as an academic exercise.
+
 ## Build Status
 
 | Operating System  |   Build Status  | CI Provider |
