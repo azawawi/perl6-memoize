@@ -1,6 +1,9 @@
 # Memoize
 This make a Perl 6 routine faster by caching its results. This means it trades
-more memory space used to get less execution time on cache hits.
+more memory space used to get less execution time on cache hits. This means it is 
+faster on routines that return a result such the following:
+- An expensive calculation (CPU)
+- A slow database query (I/O)
 
 This is a totally-experimental-at-the-moment module to create a subroutine trait
 similar to the currently experimental `is cached`.
