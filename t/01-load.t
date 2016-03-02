@@ -3,8 +3,17 @@ use v6;
 use Test;
 use lib 'lib';
 
-plan 1;
+plan 2;
 
 use Memoize;
 ok 1, "'use Memoize' worked!";
 
+sub get-slowed-result(Int $n where $_ >= 0) is memoized {
+  sleep $n / 10;
+  return 1 if $n <= 1;
+  return get-slowed-result($n - 1) * $n;
+}
+
+say sprintf("get-slowed-result(%d) is %d", $_, get-slowed-result($_)) for 0..10;
+
+ok 1, "'is memoized' worked!"
