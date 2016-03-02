@@ -10,9 +10,9 @@ similar to the currently experimental `is cached`.
 
 ## Plan
 
-- I think I will begin working on an `is memoized` module
-- Next step is a default LRU cache eviction strategy.
-- Later I will add a pluggable architecture to cache expiry.
+- Write tests
+- Add a default LRU cache eviction strategy.
+- Add a pluggable architecture to cache expiry.
 - Determine tunable cache size statistics
 
 ## Example
