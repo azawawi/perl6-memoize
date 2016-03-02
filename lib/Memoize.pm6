@@ -7,10 +7,10 @@ unit module Memoize;
 multi sub trait_mod:<is>(Routine $r, :$memoized!) is export {
   my %cache;
   my $options            = $memoized.hash if $memoized ~~ List;
-  $options               = $options // {};
-  my Int $cache_size     = $options<cache_size> // 1000;
+  $options               = $options                 // {};
+  my Int $cache_size     = $options<cache_size>     // 1000;
   my Str $cache_strategy = $options<cache_strategy> // "LRU";
-  my Bool $debug         = $options<debug> // False;
+  my Bool $debug         = $options<debug>          // False;
 
   die if $cache_strategy ne "LRU";
 
