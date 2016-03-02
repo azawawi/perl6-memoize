@@ -10,8 +10,6 @@ similar to the currently experimental `is cached`.
 
 ## Plan
 
-- Write tests
-- Add a default LRU cache eviction strategy.
 - Add a pluggable architecture to cache expiry.
 - Determine tunable cache size statistics
 
