@@ -10,6 +10,7 @@ similar to the currently experimental `is cached`.
 
 ## Plan
 
+- Add more POD
 - Add a pluggable architecture to cache expiry.
 - Determine tunable cache size statistics
 
