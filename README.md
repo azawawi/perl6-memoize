@@ -10,7 +10,6 @@ similar to the currently experimental `is cached`.
 
 ## Plan
 
-- Add more POD
 - Add a pluggable architecture to cache expiry.
 - Determine tunable cache size statistics
 
@@ -62,7 +61,7 @@ sub get-slowed-result(Int $n where $_ >= 0) is cached {
 say sprintf("get-slowed-result(%d) is %d", $_, get-slowed-result($_)) for 0..10;
 ```
 
-## Previous Totally Awesome Work and References
+## See Also
 - [Add memoize to Perl 6 Most Wanted](https://github.com/perl6/perl6-most-wanted/pull/20)
 - [Memoize (CPAN)](https://metacpan.org/pod/Memoize)
 - [Memoize::ExpireLRU (CPAN)](https://metacpan.org/pod/Memoize::ExpireLRU)
