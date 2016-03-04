@@ -10,8 +10,9 @@ similar to the currently experimental `is cached`.
 
 ## Plan
 
-- Add a pluggable architecture to cache expiry.
+- Add None to strategy to disable cache eviction and cache size limitation
 - Determine tunable cache size statistics
+- Add a pluggable architecture to cache expiry.
 
 > perlpilot: it would be interesting if you could pass the thing that handles the caching as a parameter, but perhaps only as an academic exercise.
 

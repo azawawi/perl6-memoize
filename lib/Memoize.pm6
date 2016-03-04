@@ -6,13 +6,31 @@ unit module Memoize;
 # This is called when 'is memoized' is added to a routine that returns a result
 multi sub trait_mod:<is>(Routine $r, :$memoized!) is export {
   my %cache;
-  my $options            = $memoized.hash if $memoized ~~ List;
-  $options               = $options                 // {};
+  my $options            = ($memoized ~~ Pair) || ($memoized ~~ List)
+    ?? $memoized.hash
+    !! {};
   my Int $cache_size     = $options<cache_size>     // 1000;
   my Str $cache_strategy = $options<cache_strategy> // "LRU";
+  my Bool $pure          = $options<pure>           // True;
   my Bool $debug         = $options<debug>          // False;
 
   die if $cache_strategy ne "LRU";
+
+  if $pure {
+    # Guarantee that 'is pure' is applied (if enabled)
+    # Memoization guarantees by definition the function pureness
+    my Bool $is-pure = False;
+    {
+      $is-pure = $r.IS_PURE;
+      CATCH { default { } }
+    }
+    unless $is-pure {
+      # Mixin 'is pure' for impure
+      $r.^mixin( role {
+        method IS_PURE { True }
+      });
+    }
+  }
 
   # Wrap the routine in a block that..
   $r.wrap(-> $arg {
@@ -86,6 +104,28 @@ faster on routines that return a result such the following:
 
 This is a totally-experimental-at-the-moment module to create a subroutine trait
 similar to the currently experimental `is cached`.
+
+=head1 OPTIONS
+
+=item cache_size - Int (Default: 1000)
+
+Define the cache size limitation on which cache eviction will occur. A bigger
+cache means faster.
+
+=item strategy - Str (Default: LRU)
+
+Define the cache eviction strategy. Only LRU (least recently used) is currently
+allowed.
+
+=item pure - Bool (Default: True)
+
+When this is enabled, L<is pure|http://doc.perl6.org/routine/is%20pure> is
+implied on any 'is memoized' wrapped routine.
+
+=item debug - Bool (Default: False)
+
+Enable or disables verbose debugging. Not recommended to be True in production
+enviroments.
 
 =head1 SEE ALSO
 
