@@ -96,5 +96,6 @@ similar to the currently experimental `is cached`.
 =item L<Design specification for `is cached` subroutine trait|http://design.perl6.org/S06.html#is_cached>
 =item L<Perl 6 documentation for `is cached` subroutine trait|http://doc.perl6.org/routine/is%20cached>
 =item L<Memoization on Wikipedia|https://en.wikipedia.org/wiki/Memoization>
+=item L<Pure and impure functions on Wikipedia|https://en.wikipedia.org/wiki/Pure_function#Impure_functions>
 
 =end pod
