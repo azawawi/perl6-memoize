@@ -69,3 +69,4 @@ say sprintf("get-slowed-result(%d) is %d", $_, get-slowed-result($_)) for 0..10;
 - [Design specification for `is cached` subroutine trait](http://design.perl6.org/S06.html#is_cached)
 - [Perl 6 documentation for `is cached` subroutine trait](http://doc.perl6.org/routine/is%20cached)
 - [Memoization on Wikipedia](https://en.wikipedia.org/wiki/Memoization)
+- [Pure and impure functions on Wikipedia](https://en.wikipedia.org/wiki/Pure_function#Impure_functions)
