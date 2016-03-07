@@ -70,6 +70,10 @@ say sprintf("get-slowed-result(%d) is %d", $_, get-slowed-result($_)) for 0..10;
 - [Memoization on Wikipedia](https://en.wikipedia.org/wiki/Memoization)
 - [Pure and impure functions on Wikipedia](https://en.wikipedia.org/wiki/Pure_function#Impure_functions)
 
+## Author
+
+Ahmad M. Zawawi, azawawi on #perl6, https://github.com/azawawi/
+
 ## License
 
 MIT License
